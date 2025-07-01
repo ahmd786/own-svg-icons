@@ -1,0 +1,58 @@
+{
+  "name": "own-svg-icons",
+  "version": "1.0.0",
+  "description": "A professional, flexible, and type-safe icon component system for React and Next.js projects, built with Tailwind CSS for easy styling.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevRGD/own-svg-icons.git"
+  },
+  "keywords": [
+    "react",
+    "nextjs",
+    "icons",
+    "svg",
+    "tailwindcss",
+    "typescript",
+    "component-library"
+  ],
+  "author": "DevRGD",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.1.8",
+    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "@typescript-eslint/parser": "^8.35.1",
+    "@vitejs/plugin-react": "^4.6.0",
+    "@vitest/ui": "^3.2.4",
+    "eslint": "^9.30.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-react": "^7.37.5",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
