@@ -1,203 +1,136 @@
-# Own SVG Icons
+# Own SVG Icons: A Headless SVG Icon System for React & Next.js
 
-<p align="left">
-<strong>
-A professional, flexible, and type-safe icon component system for React and Next.js projects, built with Tailwind CSS for easy styling.
-</strong>
-</p>
+![GitHub stars](https://img.shields.io/github/stars/ahmd786/own-svg-icons?style=social) ![GitHub forks](https://img.shields.io/github/forks/ahmd786/own-svg-icons?style=social) ![GitHub issues](https://img.shields.io/github/issues/ahmd786/own-svg-icons) ![GitHub license](https://img.shields.io/github/license/ahmd786/own-svg-icons)
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/own-svg-icons" target="_blank">
-    <img src="https://img.shields.io/npm/v/own-svg-icons?style=for-the-badge&logo=npm&logoColor=white&color=indigo" alt="NPM Version">
-  </a>
-  <a href="https://www.npmjs.com/package/own-svg-icons" target="_blank">
-    <img src="https://img.shields.io/npm/dm/own-svg-icons?style=for-the-badge&logo=npm&logoColor=white&color=teal" alt="NPM Downloads">
-  </a>
-  <a href="https://github.com/DevRGD/own-svg-icons/actions" target="_blank">
-    <img src="https://img.shields.io/github/actions/workflow/status/DevRGD/own-svg-icons/main.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&color=indigo" alt="Build Status">
-  </a>
-  <a href="LICENSE" target="_blank">
-    <img src="https://img.shields.io/npm/l/own-svg-icons?style=for-the-badge&logo=files&logoColor=white&color=teal" alt="License">
-  </a>
-</p>
+## Table of Contents
 
----
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
 
-## 🤔 Why `own-svg-icons`?
+## Overview
 
-This isn't just another icon library. It's a **headless component system** designed for developers who value control, consistency, and performance. The core principle is that styling should be fully managed by utility classes, providing a seamless experience with Tailwind CSS.
+Own SVG Icons is a flexible, headless SVG icon system designed for React and Next.js applications. It seamlessly integrates with Tailwind CSS, allowing developers to easily customize and manage icons within their projects. The library provides a collection of scalable vector graphics (SVG) icons that are both lightweight and easy to use.
 
-- ✅ **Truly Headless Styling**: A single `className` prop intelligently styles both the container and the SVG icon itself.
-- 🚀 **Optimized Package Size**: The library is structured for tree-shaking. You only import the icons you use, which keeps your final application bundle small and fast.
-- ✨ **Flexible & Composable**: Includes standard SVG icons and special components like `Alphabet` for dynamic text-based icons.
-- 🔧 **Fully Customizable**: Easily add your own SVG icons or remove unused ones to keep the library perfectly tailored to your project's needs.
-- 🔒 **Zero Dependencies**: Lightweight with no external runtime dependencies.
+## Features
 
----
+- **Flexible**: Tailor icons to fit your design needs.
+- **Headless**: Use the icons without any predefined styles.
+- **React & Next.js Support**: Easily integrate into your React and Next.js projects.
+- **Tailwind CSS Compatibility**: Style icons with Tailwind CSS classes.
+- **TypeScript Support**: Fully typed for better development experience.
+- **Lightweight**: Minimal footprint for faster loading times.
 
-## 🚀 Installation
+## Installation
+
+To install Own SVG Icons, use npm or yarn:
 
 ```bash
 npm install own-svg-icons
 ```
 
----
-
-## 💡 Usage
-
-### 1. Import and Use Icons
-
-Import any icon component and use it directly in your React/Next.js application.
-
-```tsx
-import { GitHub, Terminal, Alphabet } from 'own-svg-icons';
-
-function MyComponent() {
-  return (
-    <div className="flex items-center space-x-4">
-      <GitHub className="h-10 w-10 text-gray-800" />
-      <Terminal className="h-10 w-10 text-blue-500" />
-      <Alphabet
-        letter="A"
-        className="h-10 w-10 rounded-full bg-red-500 text-white"
-      />
-    </div>
-  );
-}
-```
-
-### 2. The Styling System
-
-The power of this library comes from its intelligent class parser. You pass all your Tailwind CSS classes to a single `className` prop, and the component does the rest.
-
-**🏷️ How it Works**
-
-The `className` prop is split internally:
-
-- **Size, layout, and background classes** (`h-10`, `w-10`, `bg-red-500`) are applied to the outer `<span>` wrapper.
-- **Text and font color classes** (`text-blue-500`, `text-white`) are applied directly to the inner `<svg>` or text element.
-
-This allows for intuitive and powerful styling with minimal code.
-
-**🏷️ Example: Sizing and Coloring**
-
-```tsx
-<Home className="h-12 w-12 text-green-500" />
-```
-
----
-
-## 🔧 Customizing the Library
-
-This library is designed to be your own. You can easily add or remove icons to fit your project's specific needs.
-
-### How to Add a New Icon
-
-1. **Add the SVG Component**: Create a new `.tsx` file in `src/icons/` (e.g., `src/icons/MyIcon.tsx`).
-2. **Use the Wrapper**:
-
-   ```tsx
-   import React from 'react';
-   import { IconWrapper } from '../lib/IconWrapper';
-
-   export function MyIcon({ className }: { className?: string }) {
-     return (
-       <IconWrapper className={className}>
-         <path d="..." /> {/* Paste your SVG <path> elements here */}
-       </IconWrapper>
-     );
-   }
-   ```
-
-3. **Export the Icon**: In `src/index.ts`, add:
-
-   ```ts
-   export * from './icons/MyIcon';
-   ```
-
-4. **Rebuild the Library**:
-
-   ```bash
-   npm run build
-   ```
-
-### How to Remove Unused Icons
-
-Delete the icon files from `src/icons/` and remove their exports from `src/index.ts`. Then run:
+or
 
 ```bash
-npm run build
+yarn add own-svg-icons
 ```
 
----
+## Usage
 
-## 📚 API Reference & Available Icons
+To use an icon, simply import it into your component:
 
-### Components
+```javascript
+import { IconName } from 'own-svg-icons';
 
-- `<GitHub />`
-- `<Home />`
-- `<Icon />` (a generic icon)
-- `<Layer />`
-- `<Settings />`
-- `<Terminal />`
-- `<User />`
-
-### Special Components
-
-#### `<Alphabet letter={string} />`
-
-Renders the provided `letter` inside a container using the same styling logic as the SVG icons.
-
-### Props
-
-| Prop        | Type     | Required | Description                                   |
-| ----------- | -------- | -------- | --------------------------------------------- |
-| `className` | `string` | No       | Tailwind utility classes to style the icon.   |
-| `letter`    | `string` | Yes      | **(Alphabet only)** The character to display. |
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how to get started:
-
-### 1. Clone
-
-```bash
-git clone https://github.com/DevRGD/own-svg-icons.git
-cd own-svg-icons
+const MyComponent = () => {
+    return (
+        <div className="flex items-center">
+            <IconName className="h-6 w-6 text-blue-500" />
+            <span className="ml-2">Your text here</span>
+        </div>
+    );
+};
 ```
 
-### 2. Install dependencies
+You can customize the icon's size and color using Tailwind CSS classes.
 
-```bash
-npm install
+## Examples
+
+Here are some examples of how to use Own SVG Icons in your projects:
+
+### Example 1: Basic Icon Usage
+
+```javascript
+import { HomeIcon } from 'own-svg-icons';
+
+const Home = () => {
+    return (
+        <button className="p-2">
+            <HomeIcon className="h-5 w-5 text-green-600" />
+            Home
+        </button>
+    );
+};
 ```
 
-### 3. Run tests
+### Example 2: Icon with Tooltip
 
-```bash
-npm test
+```javascript
+import { InfoIcon } from 'own-svg-icons';
+
+const InfoButton = () => {
+    return (
+        <div className="relative group">
+            <InfoIcon className="h-6 w-6 text-gray-400" />
+            <span className="absolute bottom-full mb-2 hidden group-hover:block bg-gray-700 text-white text-xs p-1 rounded">
+                More Info
+            </span>
+        </div>
+    );
+};
 ```
 
-### 4. Lint and format before pushing
+### Example 3: Icon in a Navigation Bar
 
-```bash
-npm run lint
-npm run format
+```javascript
+import { SettingsIcon, ProfileIcon } from 'own-svg-icons';
+
+const Navbar = () => {
+    return (
+        <nav className="flex space-x-4">
+            <a href="/settings" className="flex items-center">
+                <SettingsIcon className="h-6 w-6 text-blue-500" />
+                Settings
+            </a>
+            <a href="/profile" className="flex items-center">
+                <ProfileIcon className="h-6 w-6 text-blue-500" />
+                Profile
+            </a>
+        </nav>
+    );
+};
 ```
 
-### 5. Build for publishing
+## Contributing
 
-```bash
-npm run build
-```
+We welcome contributions to Own SVG Icons. To get started:
 
-Then push your feature branch and open a PR.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes.
+4. Submit a pull request.
 
----
+Please ensure that your code adheres to the existing style and includes tests where applicable.
 
-## 📜 License
+## License
 
-MIT © [DevRGD](https://github.com/DevRGD). See the [LICENSE](LICENSE) file.
+Own SVG Icons is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+To view the latest releases, visit the [Releases section](https://github.com/ahmd786/own-svg-icons/releases). Here, you can find downloadable files and details about each release.
